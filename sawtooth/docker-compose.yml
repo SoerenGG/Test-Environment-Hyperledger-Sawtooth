@@ -1,0 +1,22 @@
+version: '3.6'
+
+services:
+  sawtooth-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./tmp/sawtooth-sdk-python:/tmp/sawtooth-sdk-python
+    container_name: validator
+    command: ./my_wrapper_script.sh
+      #     command:
+      #|
+     # bash -c "
+     # sawtooth-validator -vv \
+     #       --endpoint tcp://validator:8800 \
+     #       --bind component:tcp://eth0:4004 \
+     #       --bind network:tcp://eth0:8800 \
+     #       --bind consensus:tcp://eth0:5050 \
+    #  "
+    stop_signal: SIGKILL
+

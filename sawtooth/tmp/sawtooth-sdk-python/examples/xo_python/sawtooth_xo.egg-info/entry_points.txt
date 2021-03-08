@@ -1,0 +1,4 @@
+[console_scripts]
+xo = sawtooth_xo.xo_cli:main_wrapper
+xo-tp-python = sawtooth_xo.processor.main:main
+
